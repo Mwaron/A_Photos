@@ -1,0 +1,56 @@
+:root {
+  --bckgrnd: #000000;
+  --color: #ffffff;
+  --color2: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  height: 80px;
+  border-radius: 13px;
+  border: solid 2px var(--color2);
+  top: 0;
+  left: 0;
+  width: calc(100% - 1rem);
+  padding: 1.3rem 10%;
+  margin: 0.5rem;
+  z-index: 5;
+}
+nav h1 {
+  color: var(--color2);
+  font-size: 35px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 5vw;
+  color: var(--color2);
+  font-size: 25px;
+}
+nav ul li {
+  position: relative;
+  transition: all 0.4s ease;
+}
+nav ul a {
+  text-decoration: none;
+  color: var(--color2);
+}
+
+section {
+  border: --color2 1px;
+  border-style: solid;
+  width: 100vw;
+  height: 100vh;
+}/*# sourceMappingURL=style.css.map */
