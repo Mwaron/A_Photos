@@ -39,7 +39,6 @@
 .show {
   display: block;
   background-color: var(--bckgrnd);
-  margin: 100px;
 }
 
 * {
@@ -118,11 +117,42 @@ nav ul a {
   color: var(--color2);
 }
 
+.home {
+  padding: 0;
+}
+
 section {
+  display: flex;
   border: --color2 1px;
   border-style: solid;
+  padding: 5rem;
   width: 100vw;
   height: 100vh;
+}
+section.left {
+  text-align: left;
+}
+section.left p {
+  max-width: 45%;
+}
+section.right {
+  text-align: right;
+}
+section.right p {
+  padding-left: 55%;
+}
+section .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section .text h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+section .text p {
+  text-align: justify;
+  font-size: 1.2srem;
 }
 
 /* ANIMATIONS */

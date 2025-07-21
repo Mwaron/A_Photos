@@ -46,7 +46,6 @@
 .show {
     display: block;
     background-color: var(--bckgrnd);
-    margin: 100px;
     }
 
 *{
@@ -64,13 +63,14 @@
     .dropdown{
         display: block;
     }
+
+
 }
 
 html{
     scroll-behavior: smooth;
     scrollbar-width: thin;
 }
-
 
 
 
@@ -147,13 +147,58 @@ nav{
     }
 }
 
+.home{
+    padding: 0;
+}
 
+//the sections
 section{
+    //basics
+    display: flex;
+
     border: --color2 1px;
     border-style: solid;
 
+    padding: 5rem;
+    
+
     width: 100vw;
     height: 100vh;
+
+
+    //left or right section
+    &.left{
+        text-align: left;
+        p{
+            max-width: 45%;
+        }
+    }
+    &.right{
+        text-align: right;
+        p{
+            padding-left: 55%;
+        }
+    }
+
+
+    // the text inside the sections
+    .text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2{
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p{
+            text-align: justify;
+            font-size: 1.2srem;
+        }
+
+    }
+
 }
 
 
