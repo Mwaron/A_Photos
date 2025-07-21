@@ -1,8 +1,16 @@
-window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const zoomElement = document.querySelector('.camera');
-    // Scale between 1 and 2 based on scroll amount (adjust divisor for speed)
-    const scale = 1 + scrollTop / 500;
-    zoomElement.style.transform = `scale(${scale})`;
-  });
-  
+const btn = document.getElementById('ddbtn');
+const content = document.getElementById('ddct');
+
+
+btn.addEventListener('click', function(event) {
+  event.stopPropagation(); // Prevent click event from bubbling up
+  content.classList.toggle('show');
+  console.log(content.classList.contains('show'));
+});
+
+document.addEventListener('click', function() {
+  if (content.classList.contains('show')) {
+    content.classList.remove('show');
+    console.log(content.classList.contains('show'));
+  }
+});

@@ -1,7 +1,45 @@
 :root {
-  --bckgrnd: #000000;
+  --bckgrnd: #acacac;
   --color: #ffffff;
   --color2: #000000;
+}
+
+.dropdown {
+  display: none;
+}
+.dropdown button {
+  background: none;
+  border: solid 3px var(--color2);
+  border-radius: 7px;
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  color: var(--color2);
+  cursor: pointer;
+}
+.dropdown button:hover {
+  transition: all 0.4s ease;
+  background-color: green;
+}
+.dropdown ul {
+  display: block;
+  padding: 10px 15px;
+}
+.dropdown .content {
+  display: none;
+  position: absolute;
+  border: solid;
+  border-radius: 7px;
+  color: var(--color);
+  font-size: 30px;
+  padding: 10px 15px;
+  background-color: var(--bckgrnd);
+}
+
+.show {
+  display: block;
+  background-color: var(--bckgrnd);
+  margin: 100px;
 }
 
 * {
@@ -9,6 +47,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Courier New", Courier, monospace;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 nav {
@@ -36,12 +87,31 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 5vw;
-  color: var(--color2);
-  font-size: 25px;
+  color: var(--color1);
+  font-size: 30px;
 }
 nav ul li {
   position: relative;
   transition: all 0.4s ease;
+}
+nav ul li:hover {
+  color: var(--color2);
+}
+nav ul li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color2);
+}
+nav ul li:hover::after {
+  animation: hoveranim1 0.3s ease forwards;
+  background-color: var(--color2);
+}
+nav ul li:not(:hover)::after {
+  animation: hoveranim1rev 0.3s ease forwards;
 }
 nav ul a {
   text-decoration: none;
@@ -53,4 +123,34 @@ section {
   border-style: solid;
   width: 100vw;
   height: 100vh;
+}
+
+/* ANIMATIONS */
+@keyframes hoveranim1 {
+  from {
+    translate: 0 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+  }
+  to {
+    translate: 0 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+@keyframes hoveranim1rev {
+  from {
+    translate: 0 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  to {
+    translate: 0 0;
+    bottom: 0;
+    left: 100%;
+    width: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

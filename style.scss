@@ -1,9 +1,53 @@
 :root{
-    --bckgrnd: #000000;
+    --bckgrnd: #acacac;
     --color: #ffffff;
     --color2: #000000;
 
 }
+.dropdown{
+    display: none;
+
+    button{
+        background: none;
+        border: solid 3px var(--color2);
+        border-radius: 7px;
+        height: 50px;
+        width: 50px;
+        font-size: 30px;
+        color: var(--color2);
+        cursor: pointer;
+
+        &:hover{
+            transition: all 0.4s ease;
+            background-color: green;
+        }
+    }
+    ul{
+        display: block;
+        padding: 10px 15px;
+    }
+
+    .content{
+        display: none;
+        position: absolute;
+        border: solid;
+        border-radius: 7px;
+        color: var(--color);
+        font-size: 30px;
+        padding: 10px 15px;
+
+        background-color: var(--bckgrnd);
+
+
+    }
+
+}
+    //display the dropdown menu on click
+.show {
+    display: block;
+    background-color: var(--bckgrnd);
+    margin: 100px;
+    }
 
 *{
     margin: 0;
@@ -11,6 +55,25 @@
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
 }
+
+@media screen and (max-width: 768px) {
+    .navigation{
+        display: none;
+    }
+
+    .dropdown{
+        display: block;
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+
+
+
 
 nav{
     display: flex;
@@ -45,13 +108,36 @@ nav{
         list-style: none;
         display: flex;
         gap: 5vw;
-        color: var(--color2);
+        color: var(--color1);
         
-        font-size: 25px;
+        font-size: 30px;
     
         li{
             position: relative;
             transition: all 0.4s ease;
+    
+            &:hover{
+                color: var(--color2);
+            }
+    
+            &::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 100%;
+                width: 0;
+                height: 2px;
+                background-color: var(--color2);
+            }
+    
+            &:hover::after{
+                animation: hoveranim1 0.3s ease forwards;
+                background-color: var(--color2);
+            }
+    
+            &:not(:hover)::after{
+                animation: hoveranim1rev 0.3s ease forwards;
+            }
         }
 
         a{
@@ -68,4 +154,48 @@ section{
 
     width: 100vw;
     height: 100vh;
+}
+
+
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+                    /* ANIMATIONS */
+
+@keyframes hoveranim1 {
+    from {
+        translate: 0 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+    }
+
+    to {
+        translate: 0 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+
+@keyframes hoveranim1rev {
+    from {
+        translate: 0 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    to {
+        translate: 0 0;
+        bottom: 0;
+        left: 100%;
+        width: 0;
+    }
 }
