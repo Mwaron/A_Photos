@@ -1,20 +1,50 @@
 :root{
-    --bckgrnd: #acacac;
-    --color: #ffffff;
-    --color2: #000000;
-
+    --bckgrnd: #f6efef;
+    --color: #221D23;
+    --color2: #ae0e0e;
 }
+
+.darkmode{
+    --bckgrnd: #221D23;
+    --color: #FBF6EF;
+    --color2: #ae0e0e;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+body{
+    background-color: var(--bckgrnd);
+    color: var(--color);
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+
 .dropdown{
     display: none;
 
     button{
         background: none;
-        border: solid 3px var(--color2);
+        border: solid 3px var(--color);
         border-radius: 7px;
         height: 50px;
         width: 50px;
         font-size: 30px;
-        color: var(--color2);
+        color: var(--color);
         cursor: pointer;
 
         &:hover{
@@ -48,12 +78,13 @@
     background-color: var(--bckgrnd);
     }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
-}
+
+
+
+
+///////////////////////////////////////////////
+/// DISPLAY ON MOBILE OR DIFFERENT SCREEN'S ///
+///////////////////////////////////////////////
 
 @media screen and (max-width: 768px) {
     .navigation{
@@ -67,10 +98,7 @@
 
 }
 
-html{
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-}
+///////////////////////////////////////////////
 
 
 
@@ -87,7 +115,7 @@ nav{
 
     height: 80px;
     border-radius: 13px;
-    border: solid 2px var(--color2);
+    border: solid 2px var(--color);
 
 
     top: 0;
@@ -100,8 +128,12 @@ nav{
     z-index: 5;
     
     h1{
-        color: var(--color2);
-        font-size: 35px;
+        color: var(--color);
+        font-size: clamp(25px, 7vw, 50px);
+        font-family: 'Playfair Display', serif;
+        &::first-letter{
+            color: var(--color2);
+        }
     }
 
     ul{
@@ -111,13 +143,19 @@ nav{
         color: var(--color1);
         
         font-size: 30px;
-    
+        
+        
+        
         li{
             position: relative;
-            transition: all 0.4s ease;
-    
+            
             &:hover{
-                color: var(--color2);
+                transition: all 0.4s ease;
+                scale: 1.02;
+            }
+            &:not(:hover){
+                transition: all 0.4s ease;
+                scale: 1;
             }
     
             &::after{
@@ -127,7 +165,7 @@ nav{
                 left: 100%;
                 width: 0;
                 height: 2px;
-                background-color: var(--color2);
+                background-color: var(--color);
             }
     
             &:hover::after{
@@ -142,10 +180,66 @@ nav{
 
         a{
             text-decoration: none;
-            color: var(--color2);
+            color: var(--color);
         }
     }
 }
+
+
+/////////////////////////////////////////////
+///            DARK/LIGHT MODE            ///
+/////////////////////////////////////////////
+
+#theme-switch{
+    transition: all 0.4s ease;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    padding: 0;
+    margin: 1rem;
+
+    border-radius: 50%;
+    border: dotted 5px var(--color);
+    background: none;
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    outline: none;
+
+
+    svg{
+        fill: var(--color);
+
+        &:first-child{
+            display: none;
+        }
+        &:last-child{
+            display: block;
+        }
+
+        .darkmode &:last-child{
+            display: none;
+        }
+        .darkmode &:first-child{
+            display: block;
+        }
+    }
+}
+
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
+
 
 .home{
     padding: 0;
@@ -156,14 +250,14 @@ section{
     //basics
     display: flex;
 
-    border: --color2 1px;
-    border-style: solid;
+    border: var(--colo) 0.1rem;
+    border-style: dotted;
 
     padding: 5rem;
     
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
 
     //left or right section
@@ -188,13 +282,30 @@ section{
         justify-content: center;
 
         h2{
-            font-size: 3rem;
+            font-size: clamp(1.5rem, 3.5vw, 3.3rem);;
             margin-bottom: 1rem;
+
+            &::first-letter{
+                color: var(--color2);
+            }
+
         }
 
         p{
             text-align: justify;
-            font-size: 1.2srem;
+            font-size: clamp(0.8rem, 1.6vw, 1.5rem);
+        }
+
+        //on different screens
+        @media screen and (max-width: 425px) {
+            align-items: center;
+            padding: 0;
+            p{
+                max-width: 100%;
+                text-align: justify;
+                padding: 0;
+            }
+            
         }
 
     }
@@ -204,13 +315,9 @@ section{
 
 ///////////////////////////////////
 ///////////////////////////////////
+        /* ANIMATIONS */
 ///////////////////////////////////
 ///////////////////////////////////
-///////////////////////////////////
-///////////////////////////////////
-///////////////////////////////////
-///////////////////////////////////
-                    /* ANIMATIONS */
 
 @keyframes hoveranim1 {
     from {
