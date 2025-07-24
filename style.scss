@@ -2,6 +2,8 @@
     --bckgrnd: #f6efef;
     --color: #221D23;
     --color2: #ae0e0e;
+
+
 }
 
 .darkmode{
@@ -26,6 +28,7 @@ body{
     background-color: var(--bckgrnd);
     color: var(--color);
     overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -148,15 +151,6 @@ nav{
         
         li{
             position: relative;
-            
-            &:hover{
-                transition: all 0.4s ease;
-                scale: 1.02;
-            }
-            &:not(:hover){
-                transition: all 0.4s ease;
-                scale: 1;
-            }
     
             &::after{
                 content: '';
@@ -189,15 +183,23 @@ nav{
 /////////////////////////////////////////////
 ///            DARK/LIGHT MODE            ///
 /////////////////////////////////////////////
-
 #theme-switch{
+
+    @media screen and (max-width: 425px) {
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+        border-width: 3px;
+    }
+
     transition: all 0.4s ease;
     position: fixed;
     bottom: 0;
     right: 0;
     cursor: pointer;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: clamp(40px, 10vw, 70px);
+    height: clamp(40px, 10vw, 70px);
 
     padding: 0;
     margin: 1rem;
@@ -213,6 +215,21 @@ nav{
 
 
     outline: none;
+
+    &:hover{
+        svg{
+            transition: all 0.7s ease-in-out;
+            scale: 1.2;
+            rotate: 180deg;
+        }
+    }
+    &:not(hover){
+        svg{
+            transition: all 0.7s ease-in-out;
+            scale: 1;
+            rotate: -180deg
+        }
+    }
 
 
     svg{

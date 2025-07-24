@@ -26,6 +26,7 @@ body {
   background-color: var(--bckgrnd);
   color: var(--color);
   overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 .dropdown {
@@ -108,14 +109,6 @@ nav ul {
 nav ul li {
   position: relative;
 }
-nav ul li:hover {
-  transition: all 0.4s ease;
-  scale: 1.02;
-}
-nav ul li:not(:hover) {
-  transition: all 0.4s ease;
-  scale: 1;
-}
 nav ul li::after {
   content: "";
   position: absolute;
@@ -143,8 +136,8 @@ nav ul a {
   bottom: 0;
   right: 0;
   cursor: pointer;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: clamp(40px, 10vw, 70px);
+  height: clamp(40px, 10vw, 70px);
   padding: 0;
   margin: 1rem;
   border-radius: 50%;
@@ -156,6 +149,25 @@ nav ul a {
   justify-content: center;
   align-items: center;
   outline: none;
+}
+@media screen and (max-width: 425px) {
+  #theme-switch {
+    border-width: 3px;
+  }
+  #theme-switch svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+#theme-switch:hover svg {
+  transition: all 0.7s ease-in-out;
+  scale: 1.2;
+  rotate: 180deg;
+}
+#theme-switch:not(hover) svg {
+  transition: all 0.7s ease-in-out;
+  scale: 1;
+  rotate: -180deg;
 }
 #theme-switch svg {
   fill: var(--color);
