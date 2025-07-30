@@ -219,8 +219,6 @@ nav ul a {
 section {
   display: flex;
   flex-direction: row;
-  border-bottom: var(--color) 0.2rem dotted;
-  border-top: var(--color) 0.2rem dotted;
   padding: 5rem;
   width: 100vw;
   min-height: 100vh;
