@@ -1,7 +1,7 @@
 :root{
     --bckgrnd: #f6efef;
     --color: #221D23;
-    --color2: #ae0e0e;
+    --color2: #e30c0c;
 
 
 }
@@ -9,7 +9,7 @@
 .darkmode{
     --bckgrnd: #221D23;
     --color: #FBF6EF;
-    --color2: #ae0e0e;
+    --color2: #e30c0c;
 }
 
 
@@ -39,7 +39,6 @@ body{
 
 .dropdown{
     display: none;
-
     button{
         background: none;
         border: solid 3px var(--color);
@@ -50,35 +49,68 @@ body{
         color: var(--color);
         cursor: pointer;
 
+        &::before{
+            content: '☰';
+        }
+
         &:hover{
             transition: all 0.4s ease;
             background-color: green;
         }
     }
-    ul{
-        display: block;
-        padding: 10px 15px;
-    }
-
-    .content{
-        display: none;
-        position: absolute;
-        border: solid;
-        border-radius: 7px;
-        color: var(--color);
-        font-size: 30px;
-        padding: 10px 15px;
-
-        background-color: var(--bckgrnd);
-
-
-    }
-
 }
-    //display the dropdown menu on click
+
+// The content where the link will take you
+.content{
+    z-index: 20;
+    
+    h2{
+        font-size: clamp(30px, 6vw, 55px);
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+    
+    top: calc(80px + 0.5rem);
+    display: none;
+    position: fixed;
+    border: solid;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    
+    padding: 1.3rem 10%;
+    margin: 0.5rem;
+    
+    
+    width: calc(100% - 1rem);
+    height: calc(100vh - 80px - 1rem);
+    
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        gap: 3.5rem;
+        
+        li a{
+            color: var(--color);
+            font-size: clamp(20px, 5vw, 35px);
+            font-family: "Playfair Display", serif;
+            text-decoration: none;
+            margin: 0.5rem;
+            
+            &:hover{
+                transition: all 0.4s ease;
+                color: var(--color2);
+            }
+        }
+    }
+}
+
+
+// Display the dropdown menu on click
 .show {
     display: block;
-    background-color: var(--bckgrnd);
     }
 
 
@@ -86,7 +118,7 @@ body{
 
 
 ///////////////////////////////////////////////
-/// DISPLAY ON MOBILE OR DIFFERENT SCREEN'S ///
+/// DISPLAY ON MOBILE OR DIFFERENT DEVICES ///
 ///////////////////////////////////////////////
 
 @media screen and (max-width: 768px) {
@@ -116,14 +148,14 @@ nav{
 
     backdrop-filter: blur(5px);
 
-    height: 80px;
     border-radius: 13px;
     border: solid 2px var(--color);
-
-
+    
+    
     top: 0;
     left: 0;
-
+    
+    height: 80px;
     width: calc(100% - 1rem);
     padding: 1.3rem 10%;
     margin: 0.5rem;
@@ -266,31 +298,19 @@ nav{
 section{
     //basics
     display: flex;
+    flex-direction: row;
 
-    border: var(--colo) 0.1rem;
-    border-style: dotted;
+    border-bottom: var(--color) 0.2rem dotted;
+    border-top: var(--color) 0.2rem dotted;
 
     padding: 5rem;
     
 
     width: 100vw;
     min-height: 100vh;
-
-
-    //left or right section
-    &.left{
-        text-align: left;
-        p{
-            max-width: 45%;
-        }
+    p{
+        max-width: 45%;
     }
-    &.right{
-        text-align: right;
-        p{
-            padding-left: 55%;
-        }
-    }
-
 
     // the text inside the sections
     .text{
@@ -299,7 +319,7 @@ section{
         justify-content: center;
 
         h2{
-            font-size: clamp(1.5rem, 3.5vw, 3.3rem);;
+            font-size: clamp(2rem, 3.5vw, 3.3rem);;
             margin-bottom: 1rem;
 
             &::first-letter{
@@ -308,13 +328,15 @@ section{
 
         }
 
+
         p{
             text-align: justify;
-            font-size: clamp(0.8rem, 1.6vw, 1.5rem);
+            font-size: clamp(1rem, 1.6vw, 1.5rem);
         }
 
+
         //on different screens
-        @media screen and (max-width: 425px) {
+        @media screen and (max-width: 560px) {
             align-items: center;
             padding: 0;
             p{
@@ -328,6 +350,31 @@ section{
     }
 
 }
+
+/*
+#work{
+    display: flex;
+    flex-direction: row-reverse;
+    .scroll-container{
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    
+        border: var(--color) 0.1rem;
+        border-style: dotted;
+    
+        display: flex;
+        align-items: center;
+    
+        img{
+            display: inline-block;
+            margin-right: 10px;
+            height: 150px;
+        }
+    }
+}
+*/
+
 
 
 ///////////////////////////////////

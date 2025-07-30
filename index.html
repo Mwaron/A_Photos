@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/pic/ap.png" type="image/png">
+    <link rel="icon" href="/svg/ap.png" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
@@ -22,19 +22,20 @@
         </ul>
 
         <div class="dropdown">
-            <button id="ddbtn">B</button>
-            <div id="ddct" class="content">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
+            <button id="ddbtn"></button>
         </div>
     </nav>
-
+    
     <main>
-
+        <div id="ddct" class="content">
+            <h2>What are you <span style="color: var(--color2);">interested</span> in?</h2>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
         <div class="theme">
             <button id="theme-switch">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
@@ -47,7 +48,7 @@
         </section>
 
 
-        <section id="about" class="left">
+        <section id="about">
             <div class="text">
                 <h2> About </h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -55,7 +56,15 @@
             </div>
         </section>
 
-        <section id="work" class="right">
+        <section id="work">
+            <!--
+            <div class="scroll-container">
+                <img src="Photos/IMG_0395.JPG" alt="">
+                <img src="Photos/IMG_3183.JPG" alt="">
+                <img src="Photos/IMG_3189.JPG" alt="">
+                <img src="Photos/IMG_3410.JPG" alt="">
+            </div>
+            -->
             <div class="text">
                 <h2> Works </h2>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
@@ -63,7 +72,7 @@
             </div>
         </section>
 
-        <section id="contact" class="left">
+        <section id="contact">
             <div class="text">
                 <h2> Contact </h2>
                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
