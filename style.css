@@ -79,7 +79,7 @@ body {
 }
 .content ul li a {
   color: var(--color);
-  font-size: clamp(20px, 5vw, 35px);
+  font-size: clamp(25px, 6vw, 40px);
   font-family: "Playfair Display", serif;
   text-decoration: none;
   margin: 0.5rem;
