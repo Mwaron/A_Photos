@@ -5,12 +5,37 @@ const content = document.getElementById('ddct');
 btn.addEventListener('click', function(event) {
   event.stopPropagation(); // Prevent click event from bubbling up
   content.classList.toggle('show');
+  //lockScroll();
   console.log(content.classList.contains('show'));
 });
+
+
 
 document.addEventListener('click', function() {
   if (content.classList.contains('show')) {
     content.classList.remove('show');
+    //unlockScroll();
     console.log(content.classList.contains('show'));
   }
 });
+
+/*
+let scrollPosition = 0;
+
+function lockScroll() {
+scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+document.body.style.position = 'fixed';
+document.body.style.top = `-${scrollPosition}px;`
+document.body.style.left = '0';
+document.body.style.right = '0';
+document.body.style.width = '100%';
+}
+
+function unlockScroll() {
+document.body.style.position = '';
+document.body.style.top = '';
+document.body.style.left = '';
+document.body.style.right = '';
+document.body.style.width = '';
+window.scrollTo(0, scrollPosition);
+}*/
