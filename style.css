@@ -226,6 +226,7 @@ section {
   min-height: 100vh;
 }
 section .contBtns {
+  flex: 0.7;
   margin: clamp(0rem, 5vw, 7rem);
   display: flex;
   flex-direction: column;
@@ -237,7 +238,9 @@ section .contBtns div {
   display: flex;
   flex-direction: row;
 }
-section .contBtns img {
+section .contBtns svg {
+  fill: var(--color2);
+  padding: 0;
   margin: 1rem;
   cursor: pointer;
   width: clamp(20px, 10vw, 65px);
@@ -245,6 +248,7 @@ section .contBtns img {
 }
 section .text {
   display: flex;
+  flex: 1.3;
   flex-direction: column;
   justify-content: center;
 }
