@@ -39,3 +39,32 @@ document.body.style.right = '';
 document.body.style.width = '';
 window.scrollTo(0, scrollPosition);
 }*/
+
+import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
+
+animate('.text', {
+    opacity: [0, 0, 1],
+    easing: 'easeInOutQuad',
+    duration: 1000,
+});
+
+//Mouse tracking
+const container = document.querySelector('.image-container');
+const overlay = container.querySelector('.overlay');
+
+container.addEventListener('mousemove', (e) => {
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left; // x position within container
+  const y = e.clientY - rect.top;  // y position within container
+  
+  overlay.style.clipPath = `circle(80px at ${x}px ${y}px)`;
+});
+
+container.addEventListener('mouseleave', () => {
+  overlay.style.transition = 'clip-path 0.8s ease';
+  overlay.style.clipPath = 'circle(0% at center)';
+});
+
+container.addEventListener('mouseenter', () => {
+  overlay.style.transition = 'none';
+});
