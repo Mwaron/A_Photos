@@ -231,30 +231,6 @@ nav ul a {
   height: 100%;
   width: 100%;
 }
-.home img:hover {
-  transition: all 0.4s ease;
-  scale: 1.1;
-}
-.home img:not(hover) {
-  transition: all 0.4s ease;
-  scale: 1;
-}
-.home .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent color */
-  pointer-events: none; /* so mouse events pass through */
-  clip-path: circle(0% at 0 0);
-  transition: clip-path 0.5s ease;
-}
-
-.image-container:hover .overlay {
-  transition: none; /* cancel transition while following cursor */
-}
 
 section {
   display: flex;
@@ -390,13 +366,4 @@ section .text p {
     left: 100%;
     width: 0;
   }
-}
-.test1 {
-  position: absolute;
-  z-index: 1000;
-  top: 100vh;
-  left: 8.5px;
-  width: 10px;
-  height: 10px;
-  background-color: #e30c0c;
 }/*# sourceMappingURL=style.css.map */

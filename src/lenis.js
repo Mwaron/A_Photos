@@ -16,6 +16,6 @@ let viewportHeight = window.innerHeight;
 console.log(viewportHeight);
 
 
-snap.add(viewportHeight)
+snap.add(viewportHeight);
 snap.add(viewportHeight * 2);
 snap.add(viewportHeight * 3);

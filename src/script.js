@@ -40,31 +40,29 @@ document.body.style.width = '';
 window.scrollTo(0, scrollPosition);
 }*/
 
-import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
+import { animate, text, stagger, onScroll, waapi} from 'animejs';
 
-animate('.text', {
-    opacity: [0, 0, 1],
-    easing: 'easeInOutQuad',
-    duration: 1000,
+animate(".text", {
+  scale: [0.8, 1],
+  opacity: [0, 1],
+  duration: 500,
+  autoplay: onScroll({
+    debug: true
+  })
 });
 
-//Mouse tracking
-const container = document.querySelector('.image-container');
-const overlay = container.querySelector('.overlay');
 
-container.addEventListener('mousemove', (e) => {
-  const rect = container.getBoundingClientRect();
-  const x = e.clientX - rect.left; // x position within container
-  const y = e.clientY - rect.top;  // y position within container
-  
-  overlay.style.clipPath = `circle(80px at ${x}px ${y}px)`;
+//Text animation
+const { chars } = text.split('p', {
+  chars: { wrap: 'clip' },
 });
 
-container.addEventListener('mouseleave', () => {
-  overlay.style.transition = 'clip-path 0.8s ease';
-  overlay.style.clipPath = 'circle(0% at center)';
-});
-
-container.addEventListener('mouseenter', () => {
-  overlay.style.transition = 'none';
+animate(chars, {
+  y: [
+    { to: ['100%', '0%'] },
+  ],
+  duration: 200,
+  ease: 'out(3)',
+  delay: stagger(20),
+  autoplay: onScroll()
 });
