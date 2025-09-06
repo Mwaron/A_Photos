@@ -61,8 +61,8 @@ animate(chars, {
   y: [
     { to: ['100%', '0%'] },
   ],
-  duration: 200,
+  duration: 150,
   ease: 'out(3)',
-  delay: stagger(20),
+  delay: stagger(5),
   autoplay: onScroll()
 });

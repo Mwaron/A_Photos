@@ -305,6 +305,30 @@ nav{
         height: 100%;
         width: 100%;   
     }
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60vw;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.2 );
+        backdrop-filter: blur(15px);
+        -webkit-mask-image: linear-gradient(to left, transparent, black 50%);
+        mask-image: linear-gradient(to left, transparent, black 50%);
+        z-index: 2;
+    }
+    h1{
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        height: 100vh;
+        width: 50vw;
+        align-items: center;
+
+        z-index: 2;
+    }
 }
 
 
