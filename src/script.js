@@ -53,7 +53,7 @@ animate(".text", {
 
 
 //Text animation
-const { chars } = text.split('p', {
+const { chars } = text.split('.text', {
   chars: { wrap: 'clip' },
 });
 

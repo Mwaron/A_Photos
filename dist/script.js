@@ -3932,7 +3932,7 @@
       debug: true
     })
   });
-  var { chars } = text.split("p", {
+  var { chars } = text.split(".text", {
     chars: { wrap: "clip" }
   });
   animate(chars, {
