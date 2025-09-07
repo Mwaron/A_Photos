@@ -247,6 +247,11 @@ nav ul a {
   font-size: 2rem;
 }
 
+.animation img {
+  width: 25rem;
+  height: auto;
+}
+
 section {
   display: flex;
   flex-direction: row;

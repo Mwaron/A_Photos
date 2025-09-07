@@ -322,7 +322,12 @@ nav{
     }
 }
 
-
+.animation{
+    img{
+        width: 25rem;
+        height: auto;
+    }
+}
 
 //the sections
 section{
@@ -341,7 +346,6 @@ section{
     width: 100vw;
     min-height: 100vh;
 
-    // the text inside the sections
     .contBtns {
         flex: 0.7;
         margin: 5rem;
@@ -370,6 +374,7 @@ section{
             }
         }
     }
+    // the text inside the sections
     .text{
         display: flex;
         flex: 1.3;
@@ -392,7 +397,6 @@ section{
             font-size: 2rem;
         }      
     }
-
 
     @media screen and (max-width: 950px) {
         flex-direction: column;

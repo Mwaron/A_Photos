@@ -3932,6 +3932,12 @@
       debug: true
     })
   });
+  animate(".animation", {
+    scale: [0.6, 1],
+    duration: 600,
+    translateX: ["100%", "0%"],
+    autoplay: onScroll()
+  });
   var { chars } = text.split(".text", {
     chars: { wrap: "clip" }
   });

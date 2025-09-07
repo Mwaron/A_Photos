@@ -51,6 +51,13 @@ animate(".text", {
   })
 });
 
+animate(".animation", {
+  scale: [0.6, 1],
+  duration: 600,
+  translateX: ['100%', '0%'],
+  autoplay: onScroll()
+})
+
 
 //Text animation
 const { chars } = text.split('.text', {
