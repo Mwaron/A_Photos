@@ -40,14 +40,14 @@ document.body.style.width = '';
 window.scrollTo(0, scrollPosition);
 }*/
 
-import { animate, text, stagger, onScroll, waapi} from 'animejs';
+import { animate, text, stagger, onScroll} from 'animejs';
 
 animate(".text", {
   scale: [0.8, 1],
   opacity: [0, 1],
   duration: 500,
   autoplay: onScroll({
-    debug: true
+    
   })
 });
 
@@ -73,3 +73,20 @@ animate(chars, {
   delay: stagger(5),
   autoplay: onScroll()
 });
+
+
+// Animate the sections
+/*animate("section", {
+  scale: [0.6, 1],
+  duration: 600,
+  translateY: ["100%", "0%"],
+  autoplay: onScroll({
+    
+    enter: 'bottom max',
+    leave: "top min",
+
+    debug: true,
+    sync: true
+
+  })
+});*/

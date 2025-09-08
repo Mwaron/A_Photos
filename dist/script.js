@@ -3928,9 +3928,7 @@
     scale: [0.8, 1],
     opacity: [0, 1],
     duration: 500,
-    autoplay: onScroll({
-      debug: true
-    })
+    autoplay: onScroll({})
   });
   animate(".animation", {
     scale: [0.6, 1],
