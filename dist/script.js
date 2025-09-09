@@ -3572,7 +3572,7 @@
       };
       if (!$splitTemplate && isBrowser) $splitTemplate = doc.createElement("template");
       if (scope.current) scope.current.register(this);
-      const { words, chars: chars2, lines, accessible, includeSpaces, debug } = parameters;
+      const { words, chars, lines, accessible, includeSpaces, debug } = parameters;
       const $target = (
         /** @type {HTMLElement} */
         (target = isArr(target) ? target[0] : target) && /** @type {Node} */
@@ -3580,7 +3580,7 @@
       );
       const lineParams = lines === true ? {} : lines;
       const wordParams = words === true || isUnd(words) ? {} : words;
-      const charParams = chars2 === true ? {} : chars2;
+      const charParams = chars === true ? {} : chars;
       this.debug = setValue(debug, false);
       this.includeSpaces = setValue(includeSpaces, false);
       this.accessible = setValue(accessible, true);
@@ -3665,7 +3665,7 @@
         if (nodeText.trim()) {
           const tempWords = [];
           const words = this.words;
-          const chars2 = this.chars;
+          const chars = this.chars;
           const wordSegments = wordSegmenter.segment(nodeText);
           const $wordsFragment = doc.createDocumentFragment();
           let prevSeg = null;
@@ -3705,7 +3705,7 @@
                   const $charNode = doc.createTextNode(charText);
                   processHTMLTemplate(
                     charTemplate,
-                    chars2,
+                    chars,
                     $charNode,
                     /** @type {DocumentFragment} */
                     $charsFragment,
@@ -3713,12 +3713,12 @@
                     debug,
                     -1,
                     words.length,
-                    chars2.length
+                    chars.length
                   );
                 }
               }
               if (wordTemplate) {
-                processHTMLTemplate(wordTemplate, words, $charsFragment, $wordsFragment, wordType, debug, -1, words.length, chars2.length);
+                processHTMLTemplate(wordTemplate, words, $charsFragment, $wordsFragment, wordType, debug, -1, words.length, chars.length);
               } else if (charTemplate) {
                 $wordsFragment.appendChild($charsFragment);
               } else {
@@ -3924,11 +3924,14 @@
       console.log(content.classList.contains("show"));
     }
   });
-  animate(".text", {
-    scale: [0.8, 1],
-    opacity: [0, 1],
-    duration: 500,
-    autoplay: onScroll({})
+  var nodes = document.querySelectorAll(".text");
+  nodes.forEach((el, i) => {
+    animate(el, {
+      scale: [0.8, 1],
+      opacity: [0, 1],
+      duration: 500,
+      autoplay: onScroll({})
+    });
   });
   animate(".animation", {
     scale: [0.6, 1],
@@ -3936,17 +3939,20 @@
     translateX: ["100%", "0%"],
     autoplay: onScroll()
   });
-  var { chars } = text.split(".text", {
-    chars: { wrap: "clip" }
-  });
-  animate(chars, {
-    y: [
-      { to: ["100%", "0%"] }
-    ],
-    duration: 150,
-    ease: "out(3)",
-    delay: stagger(5),
-    autoplay: onScroll()
+  var texts = document.querySelectorAll(".text");
+  texts.forEach((el, i) => {
+    const { chars } = text.split(el, {
+      chars: { wrap: "clip" }
+    });
+    animate(chars, {
+      y: [
+        { to: ["100%", "0%"] }
+      ],
+      duration: 150,
+      ease: "out(3)",
+      delay: stagger(5),
+      autoplay: onScroll()
+    });
   });
 })();
 /*! Bundled license information:

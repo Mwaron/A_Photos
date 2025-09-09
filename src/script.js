@@ -42,14 +42,18 @@ window.scrollTo(0, scrollPosition);
 
 import { animate, text, stagger, onScroll} from 'animejs';
 
-animate(".text", {
-  scale: [0.8, 1],
-  opacity: [0, 1],
-  duration: 500,
-  autoplay: onScroll({
-    
-  })
+const nodes = document.querySelectorAll('.text');
+nodes.forEach((el, i) => {
+  
+  animate(el, {
+    scale: [0.8, 1],
+    opacity: [0, 1],
+    duration: 500,
+    autoplay: onScroll({})
+  });
 });
+
+
 
 animate(".animation", {
   scale: [0.6, 1],
@@ -60,18 +64,22 @@ animate(".animation", {
 
 
 //Text animation
-const { chars } = text.split('.text', {
-  chars: { wrap: 'clip' },
-});
+const texts = document.querySelectorAll('.text');
+texts.forEach((el, i) => {
 
-animate(chars, {
-  y: [
-    { to: ['100%', '0%'] },
-  ],
-  duration: 150,
-  ease: 'out(3)',
-  delay: stagger(5),
-  autoplay: onScroll()
+  const { chars } = text.split(el, {
+    chars: { wrap: 'clip' },
+  });
+
+  animate(chars, {
+    y: [
+      { to: ['100%', '0%'] },
+    ],
+    duration: 150,
+    ease: 'out(3)',
+    delay: stagger(5),
+    autoplay: onScroll()
+  });
 });
 
 
