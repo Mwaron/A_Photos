@@ -3924,13 +3924,26 @@
       console.log(content.classList.contains("show"));
     }
   });
+  animate("nav", {
+    scale: [0.8, 1],
+    //translateY: ["-200%", "0%"],
+    opacity: [0, 1],
+    ease: "linear",
+    autoplay: onScroll({
+      target: "#about",
+      enter: "bottom top",
+      leave: "top top",
+      debug: false,
+      sync: true
+    })
+  });
   var nodes = document.querySelectorAll(".text");
   nodes.forEach((el, i) => {
     animate(el, {
       scale: [0.8, 1],
       opacity: [0, 1],
       duration: 500,
-      autoplay: onScroll({})
+      autoplay: onScroll()
     });
   });
   animate(".animation", {
@@ -3953,6 +3966,46 @@
       delay: stagger(5),
       autoplay: onScroll()
     });
+  });
+  animate(".home", {
+    translateY: "100vh",
+    ease: "linear",
+    autoplay: onScroll({
+      enter: "top top",
+      leave: "top bottom",
+      debug: false,
+      sync: true
+    })
+  });
+  animate("#about", {
+    translateY: "100vh",
+    ease: "linear",
+    autoplay: onScroll({
+      enter: "top top",
+      leave: "top bottom",
+      debug: false,
+      sync: 0.5
+    })
+  });
+  animate("#work", {
+    translateY: "100vh",
+    ease: "linear",
+    autoplay: onScroll({
+      enter: "top top",
+      leave: "top bottom",
+      debug: false,
+      sync: 0.5
+    })
+  });
+  animate("#contact", {
+    translateY: "100vh",
+    ease: "linear",
+    autoplay: onScroll({
+      enter: "top top",
+      leave: "top bottom",
+      debug: false,
+      sync: 0.5
+    })
   });
 })();
 /*! Bundled license information:

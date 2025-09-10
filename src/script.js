@@ -42,6 +42,24 @@ window.scrollTo(0, scrollPosition);
 
 import { animate, text, stagger, onScroll} from 'animejs';
 
+//NAVBAR ANIMARION
+animate("nav", {
+  scale: [0.8, 1],
+  //translateY: ["-200%", "0%"],
+  opacity: [0, 1],
+  ease: "linear",
+  autoplay: onScroll({
+    target: "#about",
+    enter: "bottom top",
+    leave: "top top",
+    debug: false,
+    sync: true
+  })
+});
+
+
+
+//Some text animation
 const nodes = document.querySelectorAll('.text');
 nodes.forEach((el, i) => {
   
@@ -49,7 +67,7 @@ nodes.forEach((el, i) => {
     scale: [0.8, 1],
     opacity: [0, 1],
     duration: 500,
-    autoplay: onScroll({})
+    autoplay: onScroll()
   });
 });
 
@@ -83,18 +101,71 @@ texts.forEach((el, i) => {
 });
 
 
-// Animate the sections
-/*animate("section", {
-  scale: [0.6, 1],
-  duration: 600,
-  translateY: ["100%", "0%"],
+
+/*
+const sections = document.querySelectorAll('section');
+sections.forEach((el, i) => {
+  animate(el, {
+    scale: [0.6, 1],
+    duration: 600,
+    translateY: ["0%", "100%"],
+    autoplay: onScroll({
+      enter: 'bottom max',
+      leave: "top min",
+      debug: true,
+      sync: true
+    })
+  });
+});
+*/
+
+
+//THE SECTIONS ANIMATION WHILE SCROLLING
+
+// First to second section animation
+animate(".home", {
+  translateY: "100vh",
+  ease: "linear",
   autoplay: onScroll({
-    
-    enter: 'bottom max',
-    leave: "top min",
-
-    debug: true,
+    enter: 'top top',
+    leave: "top bottom",
+    debug: false,
     sync: true
+    })
+})
 
-  })
-});*/
+// Second to third section animation
+animate("#about", {
+  translateY: "100vh",
+  ease: "linear",
+  autoplay: onScroll({
+    enter: 'top top',
+    leave: "top bottom",
+    debug: false,
+    sync: .5
+    })
+})
+
+// Third to fourth section animation
+animate("#work", {
+  translateY: "100vh",  
+  ease: "linear",
+  autoplay: onScroll({
+    enter: 'top top',
+    leave: "top bottom",
+    debug: false,
+    sync: .5
+    })
+})
+
+// Fourth to fifth section animation
+animate("#contact", {
+  translateY: "100vh",
+  ease: "linear",
+  autoplay: onScroll({
+    enter: 'top top',
+    leave: "top bottom",
+    debug: false,
+    sync: .5
+    })
+})

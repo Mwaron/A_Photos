@@ -19,7 +19,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scrollbar-width: thin;
 }
 
@@ -57,7 +56,7 @@ body {
 }
 
 .content {
-  z-index: 20;
+  z-index: 100;
   top: calc(80px + 0.5rem);
   display: none;
   position: fixed;
@@ -121,7 +120,7 @@ nav {
   width: calc(100% - 1rem);
   padding: 1.3rem 10%;
   margin: 0.5rem;
-  z-index: 5;
+  z-index: 100;
 }
 nav h1 {
   color: var(--color);
@@ -224,6 +223,7 @@ nav ul a {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  z-index: -100;
   /*
   img{
       max-height: 100vh;
@@ -247,6 +247,18 @@ nav ul a {
   font-size: 2rem;
 }
 
+#about * {
+  z-index: -80;
+}
+
+#work * {
+  z-index: -60;
+}
+
+#contact * {
+  z-index: -40;
+}
+
 .animation img {
   width: 25rem;
   height: auto;
@@ -257,13 +269,15 @@ section {
   flex-direction: row;
   justify-content: space-between;
   gap: 12rem;
+  background-color: var(--bckgrnd);
   scroll-snap-align: start;
   padding: 10rem;
-  border: solid var(--color) 5px;
+  border-top: solid var(--color) 5px;
   width: 100vw;
   min-height: 100vh;
 }
 section .contBtns {
+  z-index: 100;
   flex: 0.7;
   margin: 5rem;
   display: flex;
@@ -335,29 +349,6 @@ section .text p {
   }
 }
 
-/*
-#work{
-    display: flex;
-    flex-direction: row-reverse;
-    .scroll-container{
-        overflow-x: auto;
-        white-space: nowrap;
-        width: 100%;
-
-        border: var(--color) 0.1rem;
-        border-style: dotted;
-
-        display: flex;
-        align-items: center;
-
-        img{
-            display: inline-block;
-            margin-right: 10px;
-            height: 150px;
-        }
-    }
-}
-*/
 /* ANIMATIONS */
 @keyframes hoveranim1 {
   from {

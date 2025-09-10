@@ -21,7 +21,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 html{
-    scroll-behavior: smooth;
+    //scroll-behavior: smooth;
     scrollbar-width: thin;
     //scroll-snap-type: y mandatory;
 }
@@ -67,7 +67,7 @@ body{
 
 // The content where the link will take you
 .content{
-    z-index: 20;
+    z-index: 100;
     
     h2{
         font-size: clamp(30px, 6vw, 55px);
@@ -163,7 +163,7 @@ nav{
     padding: 1.3rem 10%;
     margin: 0.5rem;
 
-    z-index: 5;
+    z-index: 100;
     
     h1{
         color: var(--color);
@@ -299,6 +299,7 @@ nav{
     justify-content: center;
     width: 100vw;
     height: 100vh;
+    z-index: -100;
     /*
     img{
         max-height: 100vh;
@@ -322,6 +323,16 @@ nav{
     }
 }
 
+#about *{
+    z-index: -80;
+}
+#work *{
+    z-index: -60;
+}
+#contact *{
+    z-index: -40;
+}
+
 .animation{
     img{
         width: 25rem;
@@ -336,17 +347,19 @@ section{
     flex-direction: row;
     justify-content: space-between;
     gap: 12rem;
+    background-color: var(--bckgrnd);
 
     scroll-snap-align: start;
 
     padding: 10rem;
     
-    border: solid var(--color) 5px;
+    border-top: solid var(--color) 5px;
 
     width: 100vw;
     min-height: 100vh;
 
     .contBtns {
+        z-index: 100;
         flex: 0.7;
         margin: 5rem;
         display: flex;
@@ -428,29 +441,6 @@ section{
     }
 }
 
-/*
-#work{
-    display: flex;
-    flex-direction: row-reverse;
-    .scroll-container{
-        overflow-x: auto;
-        white-space: nowrap;
-        width: 100%;
-    
-        border: var(--color) 0.1rem;
-        border-style: dotted;
-    
-        display: flex;
-        align-items: center;
-    
-        img{
-            display: inline-block;
-            margin-right: 10px;
-            height: 150px;
-        }
-    }
-}
-*/
 
 
 
