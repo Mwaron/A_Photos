@@ -3937,6 +3937,17 @@
       sync: true
     })
   });
+  animate(".title", {
+    translateY: ["-200%", "0%"],
+    ease: "cubicBezier(1, 0, 0, 1)",
+    duration: 1500
+  });
+  animate(".subtitle", {
+    translateY: ["2200%", "0%"],
+    ease: "cubicBezier(1, 0, 0, 1)",
+    delay: 250,
+    duration: 1500
+  });
   var nodes = document.querySelectorAll(".text");
   nodes.forEach((el, i) => {
     animate(el, {

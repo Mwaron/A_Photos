@@ -1,21 +1,20 @@
 @charset "UTF-8";
 :root {
-  --bckgrnd: #f6efef;
+  --bckgrnd: #dde7f8;
   --color: #221D23;
   --color2: #e30c0c;
 }
 
 .darkmode {
-  --bckgrnd: #221D23;
-  --color: #FBF6EF;
-  --color2: #e30c0c;
+  --bckgrnd: #abc4ff;
+  --color: #e5e5e5;
+  --color2: #edf2fb;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
 }
 
 html {
@@ -224,6 +223,7 @@ nav ul a {
   width: 100vw;
   height: 100vh;
   z-index: -100;
+  border-top: none;
   /*
   img{
       max-height: 100vh;
@@ -239,12 +239,14 @@ nav ul a {
   text-align: center;
 }
 .home .mainText h1 {
-  font-size: 23rem;
+  font-size: 27rem;
   font-family: "Anton", sans-serif;
-  transform: scaleY(1.4);
 }
 .home .mainText p {
   font-size: 2rem;
+}
+.home .subtitle {
+  font-family: "Quicksand", sans-serif;
 }
 
 #about * {
@@ -308,15 +310,14 @@ section .text {
   justify-content: center;
 }
 section .text h2 {
-  font-size: 3.5rem;
+  font-family: "Anton", sans-serif;
+  font-size: 6rem;
   margin-bottom: 1rem;
 }
-section .text h2::first-letter {
-  color: var(--color2);
-}
 section .text p {
+  font-family: "Quicksand", sans-serif;
   text-align: justify;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 @media screen and (max-width: 950px) {
   section {
