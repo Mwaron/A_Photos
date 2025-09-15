@@ -3963,6 +3963,12 @@
     translateX: ["100%", "0%"],
     autoplay: onScroll()
   });
+  animate(".photos", {
+    scale: [0.6, 1],
+    duration: 600,
+    translateX: ["-100%", "0%"],
+    autoplay: onScroll()
+  });
   var texts = document.querySelectorAll(".text");
   texts.forEach((el, i) => {
     const { chars } = text.split(el, {
@@ -3985,7 +3991,7 @@
       enter: "top top",
       leave: "top bottom",
       debug: false,
-      sync: true
+      sync: 0.8
     })
   });
   animate("#about", {
@@ -3995,7 +4001,7 @@
       enter: "top top",
       leave: "top bottom",
       debug: false,
-      sync: 0.5
+      sync: 0.8
     })
   });
   animate("#work", {
@@ -4005,7 +4011,7 @@
       enter: "top top",
       leave: "top bottom",
       debug: false,
-      sync: 0.5
+      sync: 0.8
     })
   });
   animate("#contact", {
@@ -4015,7 +4021,7 @@
       enter: "top top",
       leave: "top bottom",
       debug: false,
-      sync: 0.5
+      sync: 0.8
     })
   });
 })();

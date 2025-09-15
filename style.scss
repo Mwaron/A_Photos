@@ -7,9 +7,9 @@
 }
 
 .darkmode{
-    --bckgrnd: #abc4ff;
-    --color: #e5e5e5;
-    --color2: #edf2fb;
+    --bckgrnd: #221D23;
+    --color: #dde7f8;
+    --color2: #e30c0c;
 }
 
 
@@ -36,7 +36,17 @@ body{
     }
 }
 
-
+.circle{
+    z-index: 100;
+    position: fixed;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    height: 10px;
+    width: 10px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
 
 
 
@@ -293,6 +303,77 @@ nav{
 
 
 
+//the sections
+section{
+    //basics
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12rem;
+    background-color: var(--bckgrnd);
+
+    padding: 10rem;
+    
+    border-top: solid var(--color) 5px;
+
+    width: 100vw;
+    height: 100vh;
+
+
+    // the text inside the sections
+    .text{
+        display: flex;
+        flex: 1.3;
+        flex-direction: column;
+        justify-content: center;
+        
+        h2{
+            font-family: "Anton", sans-serif;
+            font-size: 8rem;
+            margin-bottom: 1rem;
+        }
+
+
+        p{
+            font-family: 'Quicksand', sans-serif;
+            text-align: justify;
+            font-size: 2rem;
+        }      
+    }
+
+    @media screen and (max-width: 950px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 2rem;
+        .text{                
+            padding: 0;
+            align-items: center;
+            p{
+                font-size: 1rem;
+                max-width: 100%;
+                text-align: justify;
+                padding: 0;
+            }
+            h2{
+                font-size: 2rem;
+            }
+        }
+        .contBtns{
+            margin: 0;
+            padding: 0;
+            svg{
+                margin: 1rem;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+}
+
+
+
+//ALL THE SECTIONS KÜLÖN
 .home{
     padding-top: 5rem;
     position: relative;
@@ -330,11 +411,41 @@ nav{
 #about *{
     z-index: -80;
 }
-#work *{
-    z-index: -60;
+#work{
+    *{
+        z-index: -60;
+    }
+    .photos{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        img{
+            width: 30rem;
+            height: auto;
+        }
+    }
 }
-#contact *{
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     z-index: -40;
+
+
+    .links{
+        display: flex;
+        flex-direction: row;
+        gap: 25rem;
+        a{
+            text-decoration: none;
+            color: var(--color);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+        }
+    }
+
 }
 
 .animation{
@@ -343,106 +454,6 @@ nav{
         height: auto;
     }
 }
-
-//the sections
-section{
-    //basics
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 12rem;
-    background-color: var(--bckgrnd);
-
-    scroll-snap-align: start;
-
-    padding: 10rem;
-    
-    border-top: solid var(--color) 5px;
-
-    width: 100vw;
-    min-height: 100vh;
-
-    .contBtns {
-        z-index: 100;
-        flex: 0.7;
-        margin: 5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        div{
-            display: flex;
-            flex-direction: row;
-        }
-        
-        svg{
-            fill: var(--color);
-            margin: 2rem;
-            cursor: pointer;
-            width: 5rem;
-            height: 5rem;
-            
-            transition: .4s;
-
-            &:hover{
-                fill: var(--color2);
-                transform: scale(1.1);
-            }
-        }
-    }
-    // the text inside the sections
-    .text{
-        display: flex;
-        flex: 1.3;
-        flex-direction: column;
-        justify-content: center;
-        
-        h2{
-            font-family: "Anton", sans-serif;
-            font-size: 6rem;
-            margin-bottom: 1rem;
-        }
-
-
-        p{
-            font-family: 'Quicksand', sans-serif;
-            text-align: justify;
-            font-size: 3rem;
-        }      
-    }
-
-    @media screen and (max-width: 950px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        padding: 2rem;
-        .text{                
-            padding: 0;
-            align-items: center;
-            p{
-                font-size: 1rem;
-                max-width: 100%;
-                text-align: justify;
-                padding: 0;
-            }
-            h2{
-                font-size: 2rem;
-            }
-        }
-        .contBtns{
-            margin: 0;
-            padding: 0;
-            svg{
-                margin: 1rem;
-                width: 2rem;
-                height: 2rem;
-            }
-        }
-    }
-}
-
-
 
 
 ///////////////////////////////////

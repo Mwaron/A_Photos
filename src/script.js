@@ -40,7 +40,7 @@ document.body.style.width = '';
 window.scrollTo(0, scrollPosition);
 }*/
 
-import { animate, text, stagger, onScroll} from 'animejs';
+import { animate, text, stagger, onScroll, createTimeline} from 'animejs';
 
 //NAVBAR ANIMARION
 animate("nav", {
@@ -57,18 +57,21 @@ animate("nav", {
   })
 });
 
+
+// HOME PAGE ANIMATION
 animate(".title", {
   translateY: ["-200%", "0%"],
   ease: "cubicBezier(1, 0, 0, 1)",
   duration: 1500,
 })
 
-animate(".subtitle", {
+animate(".subtitle",{
   translateY: ["2200%", "0%"],
   ease: "cubicBezier(1, 0, 0, 1)",
   delay: 250,
   duration: 1500,
 })
+
 
 
 //Some text animation
@@ -84,11 +87,19 @@ nodes.forEach((el, i) => {
 });
 
 
-
+// GIF ANIMATION
 animate(".animation", {
   scale: [0.6, 1],
   duration: 600,
   translateX: ['100%', '0%'],
+  autoplay: onScroll()
+})
+
+//PICTURES ANIMATION
+animate(".photos", {
+  scale: [0.6, 1],
+  duration: 600,
+  translateX: ['-100%', '0%'],
   autoplay: onScroll()
 })
 
@@ -113,27 +124,11 @@ texts.forEach((el, i) => {
 });
 
 
+//CONTENT LINKS ANIMATION
 
-/*
-const sections = document.querySelectorAll('section');
-sections.forEach((el, i) => {
-  animate(el, {
-    scale: [0.6, 1],
-    duration: 600,
-    translateY: ["0%", "100%"],
-    autoplay: onScroll({
-      enter: 'bottom max',
-      leave: "top min",
-      debug: true,
-      sync: true
-    })
-  });
-});
-*/
 
 
 //THE SECTIONS ANIMATION WHILE SCROLLING
-
 // First to second section animation
 animate(".home", {
   translateY: "100vh",
@@ -142,7 +137,7 @@ animate(".home", {
     enter: 'top top',
     leave: "top bottom",
     debug: false,
-    sync: true
+    sync: .8
     })
 })
 
@@ -154,7 +149,7 @@ animate("#about", {
     enter: 'top top',
     leave: "top bottom",
     debug: false,
-    sync: .5
+    sync: .8
     })
 })
 
@@ -166,7 +161,7 @@ animate("#work", {
     enter: 'top top',
     leave: "top bottom",
     debug: false,
-    sync: .5
+    sync: .8
     })
 })
 
@@ -178,6 +173,35 @@ animate("#contact", {
     enter: 'top top',
     leave: "top bottom",
     debug: false,
-    sync: .5
+    sync: .8
     })
 })
+
+
+// CURSOR ANIMATION
+/*
+import { createAnimatable, utils } from 'animejs';
+
+const $demos = document.querySelector('#docs-demos');
+const $demo = $demos.querySelector('.docs-demo.is-active');
+let bounds = $demo.getBoundingClientRect();
+const refreshBounds = () => bounds = $demo.getBoundingClientRect();
+
+const circle = createAnimatable(".circle", {
+  x: 0,
+  y: 0,
+  ease: 'outExpo',
+});
+
+const onMouseMove = e => {
+  const { width, height, left, top } = bounds;
+  const hw = width / 2;
+  const hh = height / 2;
+  const x = utils.clamp(e.clientX - left - hw, -hw, hw);
+  const y = utils.clamp(e.clientY - top - hh, -hh, hh);
+}
+
+window.addEventListener('mousemove', onMouseMove);
+$demos.addEventListener('scroll', refreshBounds);
+*/
+
