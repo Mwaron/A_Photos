@@ -332,8 +332,14 @@ section .text p {
   gap: 2rem;
 }
 #work .photos img {
+  filter: grayscale(100%);
   width: 30rem;
   height: auto;
+  transition: all 0.4s ease;
+}
+#work .photos img:hover {
+  filter: grayscale(0%);
+  scale: 1.1;
 }
 
 #contact {
@@ -347,7 +353,8 @@ section .text p {
 #contact .links {
   display: flex;
   flex-direction: row;
-  gap: 25rem;
+  gap: 20rem;
+  margin-top: 2rem;
 }
 #contact .links a {
   text-decoration: none;

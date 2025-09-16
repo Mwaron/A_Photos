@@ -125,6 +125,16 @@ texts.forEach((el, i) => {
 
 
 //CONTENT LINKS ANIMATION
+const links = document.querySelectorAll('.links');
+links.forEach(el => {
+  el.addEventListener("mouseover", () => {
+    animate(el, {
+      scale: [0.8, 1],
+      opacity: [0, 1],
+      duration: 500,
+    });
+  });
+});
 
 
 
