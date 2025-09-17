@@ -1368,8 +1368,17 @@
 
   // src/lenis.js
   var lenis = new Lenis({
-    autoRaf: true
+    autoRaf: true,
+    smooth: true,
+    snap: true,
+    anchors: true
+    // allow Lenis to handle anchor links properly
   });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
   lenis.on("scroll", (e) => {
     console.log(e);
   });
@@ -1379,4 +1388,16 @@
   snap.add(viewportHeight);
   snap.add(viewportHeight * 2);
   snap.add(viewportHeight * 3);
+  var navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const navHeight = document.querySelector("nav").offsetHeight || 0;
+        lenis.scrollTo(targetElement, { offset: -navHeight });
+      }
+    });
+  });
 })();

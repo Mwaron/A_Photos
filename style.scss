@@ -1,15 +1,15 @@
 :root{
-    --bckgrnd: #dde7f8;
-    --color: #221D23;
-    --color2: #e30c0c;
+    --bckgrnd: #f3ede1;
+    --color: #0C4534;
+    --color2: #77A664;
 
 
 }
 
 .darkmode{
-    --bckgrnd: #221D23;
-    --color: #dde7f8;
-    --color2: #e30c0c;
+    --bckgrnd: #0C4534;
+    --color: #f3ede1;
+    --color2: #77A664;
 }
 
 
@@ -159,7 +159,7 @@ nav{
 
     position: fixed;
 
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
 
     border-radius: 13px;
     border: solid var(--color);
@@ -252,7 +252,7 @@ nav{
     border-radius: 50%;
     border: dotted 5px var(--color);
     background: none;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px);
 
     display: flex;
     justify-content: center;
@@ -331,6 +331,7 @@ section{
             font-family: "Anton", sans-serif;
             font-size: 8rem;
             margin-bottom: 1rem;
+            color: var(--color);
         }
 
 
@@ -338,6 +339,7 @@ section{
             font-family: 'Quicksand', sans-serif;
             text-align: justify;
             font-size: 2rem;
+            color: var(--color);
         }      
     }
 
@@ -447,7 +449,7 @@ section{
         flex-direction: row;
         gap: 20rem;
         margin-top: 2rem;
-        
+
         a{
             text-decoration: none;
             color: var(--color);
@@ -464,6 +466,32 @@ section{
         height: auto;
     }
 }
+
+.details{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100vw;
+    height: 3rem;
+
+    border-top: var(--color2) solid 5px;
+
+    text-align: center;
+    justify-content: space-evenly;
+
+    background-color: var(--color);
+    p{
+        color: var(--bckgrnd);
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1rem;
+    }
+}
+
 
 
 ///////////////////////////////////

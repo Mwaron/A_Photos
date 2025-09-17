@@ -19,6 +19,8 @@ document.addEventListener('click', function() {
   }
 });
 
+
+
 /*
 let scrollPosition = 0;
 
@@ -125,6 +127,27 @@ texts.forEach((el, i) => {
 
 
 //CONTENT LINKS ANIMATION
+/*
+const links = document.querySelectorAll('.links');
+links.forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    el.classList.add("cibbány");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    el.classList.remove("cibbány");
+  });
+});
+
+const c = document.getElementsByClassName(".cibbány");
+animate(c, {
+  scale: [0.8, 1],
+  opacity: [0, 1],
+  duration: 500,
+  autoplay: true
+});
+*/
+/*
 const links = document.querySelectorAll('.links');
 links.forEach(el => {
   el.addEventListener("mouseover", () => {
@@ -135,7 +158,7 @@ links.forEach(el => {
     });
   });
 });
-
+*/
 
 
 //THE SECTIONS ANIMATION WHILE SCROLLING
