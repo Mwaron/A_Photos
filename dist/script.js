@@ -3572,7 +3572,7 @@
       };
       if (!$splitTemplate && isBrowser) $splitTemplate = doc.createElement("template");
       if (scope.current) scope.current.register(this);
-      const { words, chars, lines, accessible, includeSpaces, debug } = parameters;
+      const { words, chars: chars4, lines, accessible, includeSpaces, debug } = parameters;
       const $target = (
         /** @type {HTMLElement} */
         (target = isArr(target) ? target[0] : target) && /** @type {Node} */
@@ -3580,7 +3580,7 @@
       );
       const lineParams = lines === true ? {} : lines;
       const wordParams = words === true || isUnd(words) ? {} : words;
-      const charParams = chars === true ? {} : chars;
+      const charParams = chars4 === true ? {} : chars4;
       this.debug = setValue(debug, false);
       this.includeSpaces = setValue(includeSpaces, false);
       this.accessible = setValue(accessible, true);
@@ -3665,7 +3665,7 @@
         if (nodeText.trim()) {
           const tempWords = [];
           const words = this.words;
-          const chars = this.chars;
+          const chars4 = this.chars;
           const wordSegments = wordSegmenter.segment(nodeText);
           const $wordsFragment = doc.createDocumentFragment();
           let prevSeg = null;
@@ -3705,7 +3705,7 @@
                   const $charNode = doc.createTextNode(charText);
                   processHTMLTemplate(
                     charTemplate,
-                    chars,
+                    chars4,
                     $charNode,
                     /** @type {DocumentFragment} */
                     $charsFragment,
@@ -3713,12 +3713,12 @@
                     debug,
                     -1,
                     words.length,
-                    chars.length
+                    chars4.length
                   );
                 }
               }
               if (wordTemplate) {
-                processHTMLTemplate(wordTemplate, words, $charsFragment, $wordsFragment, wordType, debug, -1, words.length, chars.length);
+                processHTMLTemplate(wordTemplate, words, $charsFragment, $wordsFragment, wordType, debug, -1, words.length, chars4.length);
               } else if (charTemplate) {
                 $wordsFragment.appendChild($charsFragment);
               } else {
@@ -3971,10 +3971,10 @@
   });
   var texts = document.querySelectorAll(".text");
   texts.forEach((el, i) => {
-    const { chars } = text.split(el, {
+    const { chars: chars4 } = text.split(el, {
       chars: { wrap: "clip" }
     });
-    animate(chars, {
+    animate(chars4, {
       y: [
         { to: ["100%", "0%"] }
       ],
@@ -3984,6 +3984,58 @@
       autoplay: onScroll()
     });
   });
+  var { chars } = text.split("#fac", {
+    chars: { wrap: "clip" }
+  });
+  var fac = document.getElementById("fac");
+  fac.addEventListener("mouseenter", hovered);
+  console.log(chars);
+  function hovered() {
+    animate(chars, {
+      opacity: [0, 1],
+      duration: 500,
+      ease: "out(100)",
+      delay: stagger(30)
+    });
+  }
+  var { chars: chars2 } = text.split("#ins", {
+    chars: { wrap: "clip" }
+  });
+  var ins = document.getElementById("ins");
+  ins.addEventListener("mouseenter", hovered2);
+  console.log(chars2);
+  function hovered2() {
+    animate(chars2, {
+      opacity: [0, 1],
+      duration: 500,
+      ease: "out(100)",
+      delay: stagger(30)
+    });
+  }
+  var { chars: chars3 } = text.split("#git", {
+    chars: { wrap: "clip" }
+  });
+  var git = document.getElementById("git");
+  git.addEventListener("mouseenter", hovered3);
+  console.log(chars3);
+  function hovered3() {
+    animate(chars3, {
+      opacity: [0, 1],
+      duration: 500,
+      ease: "out(100)",
+      delay: stagger(30)
+    });
+  }
+  var work = document.getElementById("work");
+  work.addEventListener("mousemove", spawnpic);
+  function spawnpic(e) {
+    console.log("spawn picture");
+    animate(".cursor", {
+      scale: [0.6, 1],
+      opacity: [0, 1, 0],
+      duration: 600
+    });
+  }
   animate(".home", {
     translateY: "100vh",
     ease: "linear",

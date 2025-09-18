@@ -127,38 +127,72 @@ texts.forEach((el, i) => {
 
 
 //CONTENT LINKS ANIMATION
-/*
-const links = document.querySelectorAll('.links');
-links.forEach(el => {
-  el.addEventListener("mouseenter", () => {
-    el.classList.add("cibbány");
-  });
-
-  el.addEventListener("mouseleave", () => {
-    el.classList.remove("cibbány");
-  });
+//Facebook link
+const { chars } = text.split('#fac', {
+  chars: { wrap: 'clip' },
 });
 
-const c = document.getElementsByClassName(".cibbány");
-animate(c, {
-  scale: [0.8, 1],
-  opacity: [0, 1],
-  duration: 500,
-  autoplay: true
-});
-*/
-/*
-const links = document.querySelectorAll('.links');
-links.forEach(el => {
-  el.addEventListener("mouseover", () => {
-    animate(el, {
-      scale: [0.8, 1],
-      opacity: [0, 1],
-      duration: 500,
-    });
+const fac = document.getElementById('fac')
+fac.addEventListener("mouseenter", hovered);
+console.log(chars);
+function hovered() {
+  animate(chars, {
+    opacity: [0, 1],
+    duration: 500,
+    ease: 'out(100)',
+    delay: stagger(30),
   });
+};
+
+
+//Instagram link
+const { chars: chars2 } = text.split('#ins', {
+  chars: { wrap: 'clip' },
 });
-*/
+
+const ins = document.getElementById('ins')
+ins.addEventListener("mouseenter", hovered2);
+console.log(chars2);
+function hovered2() {
+  animate(chars2, {
+    opacity: [0, 1],
+    duration: 500,
+    ease: 'out(100)',
+    delay: stagger(30),
+  });
+};
+
+//Github link
+const { chars: chars3 } = text.split('#git', {
+  chars: { wrap: 'clip' },
+});
+
+const git = document.getElementById('git')
+git.addEventListener("mouseenter", hovered3);
+console.log(chars3);
+function hovered3() {
+  animate(chars3, {
+    opacity: [0, 1],
+    duration: 500,
+    ease: 'out(100)',
+    delay: stagger(30),
+  });
+};
+
+
+
+// Cursor animation
+const work = document.getElementById('work');
+work.addEventListener("mousemove", spawnpic)
+
+function spawnpic(e) {
+  console.log('spawn picture')
+  animate(".cursor", {
+    scale: [0.6, 1],
+    opacity: [0, 1, 0],
+    duration: 600,
+  })
+}
 
 
 //THE SECTIONS ANIMATION WHILE SCROLLING

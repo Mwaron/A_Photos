@@ -422,14 +422,15 @@ section{
         flex-direction: column;
         gap: 2rem;
         img{
-            filter: grayscale(100%);
+            filter: sepia(1);
             width: 30rem;
             height: auto;
+            border-radius: 8px;
             transition: all 0.4s ease;
             
             &:hover{
-                filter: grayscale(0%);
-                scale: 1.1;
+                filter: none;
+                scale: 1.05;
             }
         }
 
@@ -484,11 +485,16 @@ section{
     text-align: center;
     justify-content: space-evenly;
 
-    background-color: var(--color);
+    background-color: #0C4534;
     p{
-        color: var(--bckgrnd);
+        color: #f3ede1;
         font-family: 'Quicksand', sans-serif;
         font-size: 1rem;
+    }
+    
+    .darkmode{
+        border-top: none;
+
     }
 }
 
