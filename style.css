@@ -33,18 +33,18 @@ body {
   }
 }
 
-.circle {
-  z-index: 100;
-  position: fixed;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 5px;
-  height: 10px;
-  width: 10px;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-
+/*
+.circle{
+    z-index: 100;
+    position: fixed;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    height: 10px;
+    width: 10px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}*/
 .dropdown {
   display: none;
 }
@@ -320,6 +320,14 @@ section .text p {
 .home .subtitle {
   font-family: "Quicksand", sans-serif;
 }
+@media screen and (max-width: 425px) {
+  .home .mainText h1 {
+    font-size: 5rem;
+  }
+  .home .mainText p {
+    font-size: 1rem;
+  }
+}
 
 #about * {
   z-index: -80;
@@ -344,6 +352,14 @@ section .text p {
   filter: none;
   scale: 1.05;
 }
+@media screen and (max-width: 425px) {
+  #work {
+    flex-direction: column-reverse;
+  }
+  #work .photos img {
+    width: 15rem;
+  }
+}
 
 #contact {
   display: flex;
@@ -365,10 +381,47 @@ section .text p {
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
 }
+@media screen and (max-width: 425px) {
+  #contact .links {
+    gap: 2rem;
+    flex-direction: column;
+    margin-top: 0;
+  }
+  #contact .links a {
+    font-size: 1rem;
+  }
+}
 
 .animation img {
   width: 25rem;
   height: auto;
+}
+.animation .light {
+  display: block;
+}
+.animation .dark {
+  display: none;
+}
+@media screen and (max-width: 425px) {
+  .animation img {
+    width: 15rem;
+  }
+}
+
+.darkmode img {
+  width: 25rem;
+  height: auto;
+}
+.darkmode .light {
+  display: none;
+}
+.darkmode .dark {
+  display: block;
+}
+@media screen and (max-width: 425px) {
+  .darkmode img {
+    width: 15rem;
+  }
 }
 
 .details {
@@ -391,8 +444,14 @@ section .text p {
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
 }
-.details .darkmode {
-  border-top: none;
+@media screen and (max-width: 425px) {
+  .details {
+    height: 0.5rem;
+    border-top: var(--color2) solid 2px;
+  }
+  .details p {
+    font-size: 0.5rem;
+  }
 }
 
 /* ANIMATIONS */
