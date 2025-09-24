@@ -1385,6 +1385,7 @@
   var snap = new Snap(lenis, {});
   var viewportHeight = window.innerHeight;
   console.log(viewportHeight);
+  snap.add(0);
   snap.add(viewportHeight);
   snap.add(viewportHeight * 2);
   snap.add(viewportHeight * 3);

@@ -24,7 +24,7 @@ const snap = new Snap(lenis, {})
 let viewportHeight = window.innerHeight;
 console.log(viewportHeight);
 
-
+snap.add(0);
 snap.add(viewportHeight);
 snap.add(viewportHeight * 2);
 snap.add(viewportHeight * 3);
